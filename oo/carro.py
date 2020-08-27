@@ -1,4 +1,3 @@
-
 """
 Você deve criar uma classe carro que vai possuir
 dois atributos compostos por outras duas classes:
@@ -16,7 +15,7 @@ Ele oferece os seguintes atributos:
 A Direção terá a responsabilidade de controlar a direção. Ela oferece
 os seguintes atributos:
 
-    Valor de diração com valores possíveis: Norte, Sul, Leste, Oeste.
+    Valor de direção com valores possíveis: Norte, Sul, Leste, Oeste.
     Método girar_a_direita
     Método girar_a_esquerda
 
@@ -101,7 +100,33 @@ Exemplo:
 
 """
 
+NORTE = 'Norte'
+LESTE = 'Leste'
+SUL = 'Sul'
+OESTE = 'Oeste'
 
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.direcao = direcao
+        self.motor = motor
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+    def acelerar(self):
+        return self.motor.acelerar()
+
+    def frear(self):
+        return self.motor.frear()
+
+    def calcular_direcao(self):
+        return self.direcao.valor
+
+    def girar_a_direita(self):
+        return self.direcao.girar_a_direita()
+
+    def girar_a_esquerda(self):
+        return self.direcao.girar_a_esquerda()
 
 
 class Motor:
@@ -119,11 +144,6 @@ class Motor:
             self.velocidade = 0
 
 
-NORTE = 'Norte'
-LESTE = 'Leste'
-SUL = 'Sul'
-OESTE = 'Oeste'
-
 class Direcao:
     def __init__(self):
         self.valor = NORTE
@@ -135,10 +155,9 @@ class Direcao:
         elif direcao == LESTE:
             self.valor = SUL
         elif direcao == SUL:
-           self.valor = OESTE
+            self.valor = OESTE
         elif direcao == OESTE:
-           self.valor = NORTE
-
+            self.valor = NORTE
 
     def girar_a_esquerda(self):
         direcao = self.valor
@@ -147,6 +166,6 @@ class Direcao:
         elif direcao == OESTE:
             self.valor = SUL
         elif direcao == SUL:
-           self.valor = LESTE
+            self.valor = LESTE
         elif direcao == LESTE:
-           self.valor = NORTE
+            self.valor = NORTE
